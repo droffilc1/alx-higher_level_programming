@@ -1,7 +1,7 @@
 0x02. Python - import & modules
 ===============================
 
-- Clifford Mapesa
+- By Clifford Mapesa
 
 Tasks
 -----
