@@ -7,6 +7,6 @@ def safe_print_list_integers(my_list=[], x=0):
                 print("{:d}".format(item), end="")
                 el_print += 1
         except ValueError:
-            raise
+            pass
     print()
     return el_print
