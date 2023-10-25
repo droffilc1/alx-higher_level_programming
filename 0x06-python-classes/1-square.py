@@ -9,4 +9,4 @@ class Square:
         Args:
             size: Defines instance attribute
         """
-        self.__size = size
+        self.size = size
