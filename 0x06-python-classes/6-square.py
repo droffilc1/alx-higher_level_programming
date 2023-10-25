@@ -48,6 +48,7 @@ class Square:
            not all(isinstance(i, int) and i >= 0 for i in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
+
     def my_print(self):
         """Public instance method that prints in stdout
         the square with the character #:
