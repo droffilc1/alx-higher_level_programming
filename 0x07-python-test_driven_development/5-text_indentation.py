@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module provides a function that prints 2 new lines
 after certain characters.
 """

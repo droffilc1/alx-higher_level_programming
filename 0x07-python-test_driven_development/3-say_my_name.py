@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Holds a function that prints a string."""
 
 def say_my_name(first_name, last_name=""):

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module provides a function for printing a square.
 
     Example:
