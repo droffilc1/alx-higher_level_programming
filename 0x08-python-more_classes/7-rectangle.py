@@ -4,11 +4,13 @@
 
 class Rectangle:
     """Defines a rectangle class.
-    
-    Arguments:
-              number_of_instances: number of instances
+
+    Attributes:
+               number_of_instances: Defines number of instances.
+               print_symbol: Used for string representation
     """
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initializing data.
