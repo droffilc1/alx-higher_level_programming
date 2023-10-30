@@ -76,7 +76,7 @@ class Rectangle:
             perimeter = 2 * (self.width + self.height)
         return perimeter
 
-    def __str__(self)-> str:
+    def __str__(self) -> str:
         """Prints a rectangle of an object"""
         if self.width == 0 or self.height == 0:
             return ""
