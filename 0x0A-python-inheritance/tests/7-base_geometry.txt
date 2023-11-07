@@ -46,4 +46,4 @@ TypeError: distance must be an integer
 >>> bg.integer_validator("distance", False)
 Traceback (most recent call last):
 	...
-ValueError: distance must be greater than 0
+TypeError: distance must be an integer
