@@ -11,7 +11,8 @@ class TestPycodestyle(unittest.TestCase):
     def test_pep8(self):
         """Test for PEP-8"""
         style = pycodestyle.StyleGuide(quit=True)
-        result = style.check_files(['models'])
-        self.assertEqual(result.total_errors, 0,
+        results = style.check_files(['models'])
+        self.assertEqual(results.total_errors, 0,
                          "Found pycodestyle errors.")
-        print(result)
+        for result in results.messages:
+            print(result)

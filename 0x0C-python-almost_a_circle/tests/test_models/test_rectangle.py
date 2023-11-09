@@ -20,22 +20,34 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(r3.id, 12)
 
     def test_types(self):
-        """Test for different types"""
+        """Make sure type errors are raised when necessary"""
         with self.assertRaises(TypeError,
                                msg="height must be an integer"):
             Rectangle(10, "2")
-        with self.assertRaises(TypeError, 
+        with self.assertRaises(TypeError,
                                msg="width must be an integer"):
             Rectangle("10", 2)
-        with self.assertRaises(ValueError, 
-                               msg="width must be > 0"):
-            Rectangle(-10, 2)
-        with self.assertRaises(TypeError, 
+        with self.assertRaises(TypeError,
                                 msg="x must be an integer"):
             Rectangle(10, 2, [], 3)
-        with self.assertRaises(ValueError, 
+
+    def test_values(self):
+        """Make sure value errors are raised when necessary"""
+        with self.assertRaises(ValueError,
+                               msg="width must be > 0"):
+            Rectangle(-10, 2)
+        with self.assertRaises(ValueError,
                                msg="y must be >= 0"):
             Rectangle(10, 2, 3, -1)
+
+    def test_area(self):
+        """Test area"""
+        r1 = Rectangle(3, 2)
+        r2 = Rectangle(2, 10)
+        r3 = Rectangle(8, 7, 0, 0, 12)
+        self.assertAlmostEqual(r1.area(), 6)
+        self.assertAlmostEqual(r2.area(), 20)
+        self.assertAlmostEqual(r3.area(), 56)
 
 if __name__ == "__main__":
     unittest.main()
