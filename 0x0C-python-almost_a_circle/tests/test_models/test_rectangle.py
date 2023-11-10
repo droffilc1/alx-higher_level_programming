@@ -49,5 +49,57 @@ class TestRectangleClass(unittest.TestCase):
         self.assertAlmostEqual(r2.area(), 20)
         self.assertAlmostEqual(r3.area(), 56)
 
+
+    def test_update_args(self):
+        """Test update method with positional arguments"""
+        r1 = Rectangle(4, 2, 1, 1, 1)
+        r1.update(2, 3, 4, 5, 6)
+        self.assertEqual(r1.id, 2)
+        self.assertEqual(r1.width, 3)
+        self.assertEqual(r1.height, 4)
+        self.assertEqual(r1.x, 5)
+        self.assertEqual(r1.y, 6)
+
+    def test_update_kwargs(self):
+        """Test update method with keyword arguments"""
+        r1 = Rectangle(4, 2, 1, 1, 1)
+        r1.update(id=2, width=3, height=4, x=5, y=6)
+        self.assertEqual(r1.id, 2)
+        self.assertEqual(r1.width, 3)
+        self.assertEqual(r1.height, 4)
+        self.assertEqual(r1.x, 5)
+        self.assertEqual(r1.y, 6)
+
+    def test_update_mix_args_kwargs(self):
+        """Tests update method with a mix of args and kwargs"""
+        r1 = Rectangle(4, 2, 1, 1, 1)
+        r1.update(2, height=4, y=6)
+        self.assertEqual(r1.id, 2)
+        self.assertEqual(r1.width, 4)
+        self.assertEqual(r1.height, 4)
+        self.assertEqual(r1.x, 1)
+        self.assertEqual(r1.y, 6)
+
+    def test_update_no_args_kwargs(self):
+        """Tests update method with no args or kwargs"""
+        r1 = Rectangle(4, 2, 1, 1, 1)
+        r1.update()
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.width, 4)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.x, 1)
+        self.assertEqual(r1.y, 1)
+
+    def test_update_args_overflow(self):
+        """Tests update method with too many positional arguments"""
+        r1 = Rectangle(4, 2, 1, 1, 1)
+        r1.update(2, 3, 4, 5, 6, 7)
+        self.assertEqual(r1.id, 2)
+        self.assertEqual(r1.width, 3)
+        self.assertEqual(r1.height, 4)
+        self.assertEqual(r1.x, 5)
+        self.assertEqual(r1.y, 6)
+
+
 if __name__ == "__main__":
     unittest.main()
