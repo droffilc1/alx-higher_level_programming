@@ -26,6 +26,11 @@ class TestSquareClass(unittest.TestCase):
         expected_result = f"[Square] ({s1.id}) {s1.x}/{s1.y} - {s1.size}"
         self.assertEqual(result, expected_result)
 
+    def test_size(self):
+        """Test for size"""
+        s1 = Square(5)
+        self.assertEqual(s1.size, 5)
+
 
 if __name__ == "__main__":
     unittest.main()
