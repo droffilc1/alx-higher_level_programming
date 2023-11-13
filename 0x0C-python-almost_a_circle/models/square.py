@@ -2,6 +2,7 @@
 """A module for a class Square that inherits from Rectangle."""
 
 
+from re import X
 from models.rectangle import Rectangle
 
 
@@ -33,3 +34,13 @@ class Square(Rectangle):
             f"[Square] ({self.id}) "
             f"{self.x}/{self.y} - {self.size}"
         )
+
+    def update(self, *args, **kwargs):
+        """Assigns attributes"""
+        if args:
+            attrs = ["id", "size", "x", "y"]
+            for i, value in enumerate(args[:4]):
+                setattr(self, attrs[i], value)
+
+        for key, value in kwargs.items():
+            setattr(self, key, value)

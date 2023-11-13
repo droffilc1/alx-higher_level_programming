@@ -31,6 +31,50 @@ class TestSquareClass(unittest.TestCase):
         s1 = Square(5)
         self.assertEqual(s1.size, 5)
 
+    def test_update_args(self):
+        """Test update method with positional arguments"""
+        s1 = Square(5)
+        s1.update(1, 2, 2, 4)
+        self.assertEqual(s1.id, 1)
+        self.assertEqual(s1.size, 2)
+        self.assertEqual(s1.x, 2)
+        self.assertEqual(s1.y, 4)
+
+    def test_update_kwargs(self):
+        """Test update method with keyword arguments"""
+        s1 = Square(4, 2, 1, 1)
+        s1.update(id=2, x=3, y=4, size=5)
+        self.assertEqual(s1.id, 2)
+        self.assertEqual(s1.size, 5)
+        self.assertEqual(s1.x, 3)
+        self.assertEqual(s1.y, 4)
+
+    def test_update_mix_args_kwargs(self):
+        """Tests update method with a mix of args and kwargs"""
+        s1 = Square(4, 2, 1, 1)
+        s1.update(2, size=4, y=6)
+        self.assertEqual(s1.id, 2)
+        self.assertEqual(s1.size, 4)
+        self.assertEqual(s1.x, 2)
+        self.assertEqual(s1.y, 6)
+
+    def test_update_no_args_kwargs(self):
+        """Tests update method with no args or kwargs"""
+        s1 = Square(4, 2, 1, 1)
+        s1.update()
+        self.assertEqual(s1.size, 4)
+        self.assertEqual(s1.x, 2)
+        self.assertEqual(s1.y, 1)
+        self.assertEqual(s1.id, 1)
+
+    def test_update_args_overflow(self):
+        """Tests update method with too many positional arguments"""
+        s1 = Square(4, 2, 1, 1)
+        s1.update(2, 3, 4, 5, 6, 7)
+        self.assertEqual(s1.id, 2)
+        self.assertEqual(s1.size, 3)
+        self.assertEqual(s1.x, 4)
+        self.assertEqual(s1.y, 5)
 
 if __name__ == "__main__":
     unittest.main()
