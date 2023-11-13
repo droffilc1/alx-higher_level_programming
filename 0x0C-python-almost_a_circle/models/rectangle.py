@@ -26,7 +26,7 @@ class Rectangle(Base):
     def width(self, value):
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        if value < 0:
+        if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
 
@@ -41,7 +41,7 @@ class Rectangle(Base):
     def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        if value < 0:
+        if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
 
@@ -100,16 +100,32 @@ class Rectangle(Base):
     def __str__(self):
         """Update class Rectangle"""
         return (
-            f"[Rectangle] ({self.id}) {self.__x}/ {self.__y} - "
-            f"{self.__width}/{self.__height}"
+            f"[Rectangle] ({self.id}) {self.x}/ {self.y} - "
+            f"{self.width}/{self.height}"
         )
 
     def update(self, *args, **kwargs):
         """Assigns an argument to class attributes"""
         if args:
-            attrs = ["id", "size", "x", "y"]
-            for i, value in enumerate(args[:4]):
-                setattr(self, attrs[i], args[i])
-
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.__width = args[1]
+            if len(args) >= 3:
+                self.__height = args[2]
+            if len(args) >= 4:
+                self.__x = args[3]
+            if len(args) >= 5:
+                self.__y = args[4]
         for key, value in kwargs.items():
             setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Returns the dictionary represenation of a Rectangle"""
+        return {
+            'x': self.x,
+            'y': self.y,
+            'id': self.id,
+            'height': self.height,
+            'width': self.width
+        }
