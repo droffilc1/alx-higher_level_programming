@@ -46,3 +46,17 @@ class Base:
                 list_dict = [obj.to_dictionary() for obj in list_objects]
                 json_str = Base.to_json_string(list_dict)
                 f.write(json_str)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Static method that returns the lit of the JSON string
+        representation json_string.
+
+        Args:
+            json_string: A string representing a list of dictionaries.
+
+        Return: The list represented by json_string.
+        """
+        if json_string is None:
+            return []
+        return json.loads(json_string)
