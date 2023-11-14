@@ -207,6 +207,285 @@ class TestRectangleClass(unittest.TestCase):
 
         self.assertEqual(r1.to_dictionary(), expected_result)
 
+    class test_width(unittest.TestCase):
+        """testing width gettter
+        """
+    def test_basic(self):
+        """Basic testing
+        """
+        obj = Rectangle(10, 20, 30, 40, 50)
+        self.assertEqual(obj.width, 10)
+
+    def test_negative_number(self):
+        """Basic testing
+        """
+        with self.assertRaises(
+            ValueError, msg='ValueError: width must be > 0'
+        ):
+            obj = Rectangle(-10, 20, 30, 40, 50)
+
+    def test_different_type_float(self):
+        """Basic testing
+        """
+        with self.assertRaises(
+            TypeError, msg='width must be an integer'
+        ):
+            obj = Rectangle(10.4, 20, 30, 40, 50)
+
+    def test_different_type_str(self):
+        """Basic testing
+        """
+        with self.assertRaises(
+            TypeError, msg='width must be an integer'
+        ):
+            obj = Rectangle("str", 20, 30, 40, 50)
+
+    def test_different_type_bool(self):
+        """Basic testing
+        """
+        with self.assertRaises(
+            TypeError, msg='width must be an integer'
+        ):
+            obj = Rectangle(True, 20, 30, 40, 50)
+
+    def test_different_type_iteratives(self):
+        """Basic testing
+        """
+        with self.assertRaises(
+            TypeError, msg='width must be an integer'
+        ):
+            obj = Rectangle([10.4], 20, 30, 40, 50)
+        with self.assertRaises(
+            TypeError, msg='width must be an integer'
+        ):
+            obj = Rectangle((10.4, 9), 20, 30, 40, 50)
+        with self.assertRaises(
+            TypeError, msg='width must be an integer'
+        ):
+            obj = Rectangle({10.4, 9}, 20, 30, 40, 50)
+
+    def test_for_zero(self):
+        """Basic testing
+        """
+        with self.assertRaises(
+            ValueError, msg='ValueError: width must be > 0'
+        ):
+            obj = Rectangle(0, 20, 30, 40, 50)
+
+    def test_different_type_None(self):
+        """Basic testing
+        """
+        with self.assertRaises(
+            TypeError, msg='width must be an integer'
+        ):
+            obj = Rectangle(None, 20, 30, 40, 50)
+
+
+class test_height(unittest.TestCase):
+    """Testing height getter
+    """
+    def test_basic(self):
+        """Basic testing
+        """
+        obj = Rectangle(10, 20, 30, 40, 50)
+        self.assertEqual(obj.height, 20)
+
+    def test_negative_number(self):
+        """Testing with a negative value
+        """
+        with self.assertRaises(
+            ValueError, msg='ValueError: height must be > 0'
+        ):
+            obj = Rectangle(10, -20, 30, 40, 50)
+
+    def test_different_type_float(self):
+        """Testing with a float value
+        """
+        with self.assertRaises(
+            TypeError, msg='height must be an integer'
+        ):
+            obj = Rectangle(10, 20.5, 30, 40, 50)
+
+    def test_different_type_str(self):
+        """Testing with a string value
+        """
+        with self.assertRaises(
+            TypeError, msg='height must be an integer'
+        ):
+            obj = Rectangle(10, "str", 30, 40, 50)
+
+    def test_different_type_bool(self):
+        """Testing with a boolean value
+        """
+        with self.assertRaises(
+            TypeError, msg='height must be an integer'
+        ):
+            obj = Rectangle(10, True, 30, 40, 50)
+
+    def test_different_type_iteratives(self):
+        """Testing with iterable types
+        """
+        with self.assertRaises(
+            TypeError, msg='height must be an integer'
+        ):
+            obj = Rectangle(10, [20.4], 30, 40, 50)
+        with self.assertRaises(
+            TypeError, msg='height must be an integer'
+        ):
+            obj = Rectangle(10, (20.4, 9), 30, 40, 50)
+        with self.assertRaises(
+            TypeError, msg='height must be an integer'
+        ):
+            obj = Rectangle(10, {20.4, 9}, 30, 40, 50)
+
+    def test_for_zero(self):
+        """Testing with zero value
+        """
+        with self.assertRaises(
+            ValueError, msg='ValueError: height must be > 0'
+        ):
+            obj = Rectangle(10, 0, 30, 40, 50)
+
+    def test_different_type_None(self):
+        """Testing with None
+        """
+        with self.assertRaises(
+            TypeError, msg='height must be an integer'
+        ):
+            obj = Rectangle(10, None, 30, 40, 50)
+
+
+class test_x(unittest.TestCase):
+    """Testing x getter
+    """
+    def test_basic(self):
+        """Basic testing
+        """
+        obj = Rectangle(10, 20, 30, 40, 50)
+        self.assertEqual(obj.x, 30)
+
+    def test_negative_number(self):
+        """Testing with a negative value
+        """
+        with self.assertRaises(
+            ValueError, msg='ValueError: x must be >= 0'
+        ):
+            obj = Rectangle(10, 20, -30, 40, 50)
+
+    def test_different_type_float(self):
+        """Testing with a float value
+        """
+        with self.assertRaises(
+            TypeError, msg='x must be an integer'
+        ):
+            obj = Rectangle(10, 20, 30.5, 40, 50)
+
+    def test_different_type_str(self):
+        """Testing with a string value
+        """
+        with self.assertRaises(
+            TypeError, msg='x must be an integer'
+        ):
+            obj = Rectangle(10, 20, "str", 40, 50)
+
+    def test_different_type_bool(self):
+        """Testing with a boolean value
+        """
+        with self.assertRaises(
+            TypeError, msg='x must be an integer'
+        ):
+            obj = Rectangle(10, 20, True, 40, 50)
+
+    def test_different_type_iteratives(self):
+        """Testing with iterable types
+        """
+        with self.assertRaises(
+            TypeError, msg='x must be an integer'
+        ):
+            obj = Rectangle(10, 20, [30.4], 40, 50)
+        with self.assertRaises(
+            TypeError, msg='x must be an integer'
+        ):
+            obj = Rectangle(10, 20, (30.4, 9), 40, 50)
+        with self.assertRaises(
+            TypeError, msg='x must be an integer'
+        ):
+            obj = Rectangle(10, 20, {30.4, 9}, 40, 50)
+
+    def test_different_type_None(self):
+        """Testing with None
+        """
+        with self.assertRaises(
+            TypeError, msg='x must be an integer'
+        ):
+            obj = Rectangle(10, 20, None, 40, 50)
+
+
+class test_y(unittest.TestCase):
+    """Testing y getter
+    """
+    def test_basic(self):
+        """Basic testing
+        """
+        obj = Rectangle(10, 20, 30, 40, 50)
+        self.assertEqual(obj.y, 40)
+
+    def test_negative_number(self):
+        """Testing with a negative value
+        """
+        with self.assertRaises(
+            ValueError, msg='ValueError: y must be >= 0'
+        ):
+            obj = Rectangle(10, 20, 30, -40, 50)
+
+    def test_different_type_float(self):
+        """Testing with a float value
+        """
+        with self.assertRaises(
+            TypeError, msg='y must be an integer'
+        ):
+            obj = Rectangle(10, 20, 30, 40.5, 50)
+
+    def test_different_type_str(self):
+        """Testing with a string value
+        """
+        with self.assertRaises(
+            TypeError, msg='y must be an integer'
+        ):
+            obj = Rectangle(10, 20, 30, "str", 50)
+
+    def test_different_type_bool(self):
+        """Testing with a boolean value
+        """
+        with self.assertRaises(
+            TypeError, msg='y must be an integer'
+        ):
+            obj = Rectangle(10, 20, 30, True, 50)
+
+    def test_different_type_iteratives(self):
+        """Testing with iterable types
+        """
+        with self.assertRaises(
+            TypeError, msg='y must be an integer'
+        ):
+            obj = Rectangle(10, 20, 30, [40.4], 50)
+        with self.assertRaises(
+            TypeError, msg='y must be an integer'
+        ):
+            obj = Rectangle(10, 20, 30, (40.4, 9), 50)
+        with self.assertRaises(
+            TypeError, msg='y must be an integer'
+        ):
+            obj = Rectangle(10, 20, 30, {40.4, 9}, 50)
+
+    def test_different_type_None(self):
+        """Testing with None
+        """
+        with self.assertRaises(
+            TypeError, msg='y must be an integer'
+        ):
+            obj = Rectangle(10, 20, 30, None, 50)
+
 
 if __name__ == "__main__":
     unittest.main()
