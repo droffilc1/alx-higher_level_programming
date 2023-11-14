@@ -294,5 +294,14 @@ class test_y(unittest.TestCase):
         ):
             obj = Square(10, 30, None)
 
+class test_str_square(unittest.TestCase):
+
+    def test_str_method(self):
+        """ Tests the __str__ method
+        """
+        obj = Square(4, 2, 1, 1)
+        expected_output = "[Square] (1) 2/1 - 4"
+        self.assertEqual(str(obj), expected_output)
+
 if __name__ == "__main__":
     unittest.main()
