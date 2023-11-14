@@ -75,7 +75,7 @@ class Base:
             else:
                 obj = cls(1)
             obj.update(**dictionary)
-            return obj
+            return (obj)
 
     @classmethod
     def load_from_file(cls):
@@ -105,17 +105,17 @@ class Base:
         filename = cls.__name__ + ".csv"
         with open(filename, 'w', encoding="utf-8") as f:
             if list_objs is None:
-                pass
+                f.write("[]")
             else:
-                if cls.__name__ == 'Rectangle':
+                if cls.__name__ == "Rectangle":
                     fieldnames = ["id", "width", "height", "x", "y"]
                 else:
                     fieldnames = ["id", "size", "x", "y"]
-                    list_dicts = [obj.to_dictionary() for obj in list_objs]
-                    writer = csv.DictWriter(f, fieldnames=fieldnames)
-                    writer.writeheader()
-                    for row in list_dicts:
-                        writer.writerow(row)
+                list_dicts = [obj.to_dictionary() for obj in list_objs]
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                for row in list_dicts:
+                    writer.writerow(row)
 
     @classmethod
     def load_from_file_csv(cls):
