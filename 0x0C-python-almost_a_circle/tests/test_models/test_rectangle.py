@@ -40,6 +40,16 @@ class TestRectangleClass(unittest.TestCase):
                                msg="y must be >= 0"):
             Rectangle(10, 2, 3, -1)
 
+    def test_str_method(self):
+        """Test __str__ method"""
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        result = str(r1)
+        expected_result = (
+            f"[Rectangle] ({r1.id}) {r1.x}/{r1.y} - "
+            f"{r1.width}/{r1.height}"
+        )
+        self.assertEqual(result, expected_result)
+
     def test_area(self):
         """Test area"""
         r1 = Rectangle(3, 2)

@@ -21,7 +21,7 @@ class TestSquareClass(unittest.TestCase):
 
     def test_str_method(self):
         """Test __str__ method"""
-        s1 = Square(id=None, x=0, y=0, size=0)
+        s1 = Square(5)
         result = str(s1)
         expected_result = f"[Square] ({s1.id}) {s1.x}/{s1.y} - {s1.size}"
         self.assertEqual(result, expected_result)
