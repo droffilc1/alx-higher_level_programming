@@ -2,7 +2,6 @@
 """A module for a class Square that inherits from Rectangle."""
 
 
-from re import X
 from models.rectangle import Rectangle
 
 
@@ -19,15 +18,14 @@ class Square(Rectangle):
         """Property to retrieve size.
         Property setter to set size
         """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be > 0")
-        self.__size = value
+        # width npt __width
+        # because you're calling width setter to set it to value
+        self.width = value
+        self.height = value
 
     def __str__(self):
         return (
