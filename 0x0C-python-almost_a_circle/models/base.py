@@ -161,4 +161,3 @@ class Base:
                     rec.forward(rectangle.height)
                     rec.left(90)
         turtle.done()
-

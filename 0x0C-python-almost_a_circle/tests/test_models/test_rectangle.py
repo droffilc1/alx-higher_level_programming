@@ -12,7 +12,9 @@ class TestRectangleClass(unittest.TestCase):
         """Test init method without id."""
         r1 = Rectangle(10, 2)
         r2 = Rectangle(2, 10)
+        r3 = Rectangle(1, 2)
         self.assertEqual(r1.id + 1, r2.id)
+        self.assertEqual(r2.id + 1, r3.id)
 
     def test_init_with_id(self):
         """Test init method with id."""
