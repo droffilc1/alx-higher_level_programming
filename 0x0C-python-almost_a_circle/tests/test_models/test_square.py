@@ -75,7 +75,7 @@ class TestSquareClass(unittest.TestCase):
         self.assertEqual(s1.size, 3)
         self.assertEqual(s1.x, 4)
         self.assertEqual(s1.y, 5)
- 
+
     def test_to_dictionary(self):
         """Test dictionary format"""
         s1 = Square(id=1, x=2, y=1, size=10)
