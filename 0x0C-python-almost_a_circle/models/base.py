@@ -11,7 +11,7 @@ class Base:
 
     def __init__(self, id=None):
         """Initializing data."""
-        if id is not None:
+        if id:
             self.id = id
         else:
             Base.__nb_objects += 1
@@ -60,3 +60,15 @@ class Base:
         if json_string is None:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Class method that returns an instance with all attributes
+        already set.
+        Args:
+            dictionary: Can be thought of as a double pointer to a dictionary
+        """
+        obj = cls(1, 1)
+        if dictionary:
+            obj.update(**dictionary)
+        return obj
