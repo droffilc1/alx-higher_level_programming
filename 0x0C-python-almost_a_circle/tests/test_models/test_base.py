@@ -324,6 +324,3 @@ class TestBaseClass(unittest.TestCase):
         List = Square.load_from_file()
         for obj in List:
             self.assertEqual(type(obj), Square)
-
-if __name__ == "__main__":
-    unittest.main()

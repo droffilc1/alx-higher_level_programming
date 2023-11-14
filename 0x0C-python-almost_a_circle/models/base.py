@@ -3,6 +3,7 @@
 
 
 import json
+import csv
 
 
 class Base:
@@ -93,3 +94,48 @@ class Base:
             obj = cls.create(**dic)
             new_list.append(obj)
         return new_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes in CSV
+
+        Args:
+            list_objs: The list objects.
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', encoding="utf-8") as f:
+            if list_objs is None:
+                pass
+            else:
+                if cls.__name__ == 'Rectangle':
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                    list_dicts = [obj.to_dictionary() for obj in list_objs]
+                    writer = csv.DictWriter(f, fieldnames=fieldnames)
+                    writer.writeheader()
+                    for row in list_dicts:
+                        writer.writerow(row)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes in csv"""
+        data = []
+
+        with open(f"{cls.__name__}.csv") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if cls.__name__ == "Rectangle":
+                    obj = cls.create(
+                        width=int(row["width"]),
+                        height=int(row["height"]),
+                        x=int(row["x"]), y=int(row["y"]),
+                        id=int(row["id"])
+                    )
+                else:
+                    obj = cls.create(
+                        size=int(row["size"]),
+                        x=int(row["x"]), y=int(row["y"]), id=int(row["id"])
+                    )
+                data.append(obj)
+        return data
