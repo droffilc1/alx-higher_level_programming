@@ -297,15 +297,6 @@ class test_y(unittest.TestCase):
         ):
             obj = Square(10, 30, None)
 
-class test_str_square(unittest.TestCase):
-
-    def test_str_method(self):
-        """ Tests the __str__ method
-        """
-        obj = Square(4, 2, 1, 1)
-        expected_output = "[Square] (1) 2/1 - 4"
-        self.assertEqual(str(obj), expected_output)
-
 class TestSquare_stdout(unittest.TestCase):
     """Unittests for testing __str__ and display methods of Square class."""
 
@@ -359,6 +350,13 @@ class TestSquare_stdout(unittest.TestCase):
         s = Square(1, 2, 3, 4)
         with self.assertRaises(TypeError):
             s.__str__(1)
+
+    def test_str_method(self):
+        """ Tests the __str__ method
+        """
+        obj = Square(4, 2, 1, 1)
+        expected_output = "[Square] (1) 2/1 - 4"
+        self.assertEqual(str(obj), expected_output)
 
     # Test display method
     def test_display_size(self):
