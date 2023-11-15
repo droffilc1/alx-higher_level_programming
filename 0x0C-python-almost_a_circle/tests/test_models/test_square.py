@@ -342,7 +342,7 @@ class test_str_square(unittest.TestCase):
         s1 = Square(1, 2, 3)
         self.assertEqual(str(s1), "[Square] (68) 2/3 - 1")
 
-    def test_strinf_rep_w_x_y_id(self):
+    def test_str_w_x_y_id(self):
         s1 = Square(1,2,3,4)
         self.assertEqual(str(s1), "[Square] (4) 2/3 - 1")
 
