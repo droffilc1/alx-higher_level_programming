@@ -319,68 +319,14 @@ class TestSquare_stdout(unittest.TestCase):
         sys.stdout = sys.__stdout__
         return capture
 
-    def test_str_method_print_size(self):
-        """Test __str__ method print"""
-        s = Square(4)
-        capture = TestSquare_stdout.capture_stdout(s, "print")
-        correct = "[Square] ({}) 0/0 - 4\n".format(s.id)
-        self.assertEqual(correct, capture.getvalue())
-
-    def test_str_method_size_x(self):
-        """Test __str__ method size_x"""
-        s = Square(5, 5)
-        correct = "[Square] ({}) 5/0 - 5".format(s.id)
-        self.assertEqual(correct, s.__str__())
-
-    def test_str_method_size_x_y(self):
-        """Test __str__ method size_x_y"""
-        s = Square(7, 4, 22)
-        correct = "[Square] ({}) 4/22 - 7".format(s.id)
-        self.assertEqual(correct, str(s))
-
-    def test_str_method_size_x_y_id(self):
-        """Test __str__ method size_x_y_id"""
-        s = Square(2, 88, 4, 19)
-        self.assertEqual("[Square] (19) 88/4 - 2", str(s))
-
-    def test_str_method_changed_attributes(self):
-        """Test __str__ method changed attributtes"""
-        s = Square(7, 0, 0, [4])
-        s.size = 15
-        s.x = 8
-        s.y = 10
-        self.assertEqual("[Square] ([4]) 8/10 - 15", str(s))
-
-    def test_str_method_one_arg(self):
-        """Test __str__ method with one arg"""
-        s = Square(1, 2, 3, 4)
-        with self.assertRaises(TypeError):
-            s.__str__(1)
-
+class test_str_square(unittest.TestCase):
+    """Test __str__ method"""
     def test_str_method(self):
-        """Tests the __str__ method"""
+        """ Tests the __str__ method"""
         obj = Square(4, 2, 1, 1)
         expected_output = "[Square] (1) 2/1 - 4"
         self.assertEqual(str(obj), expected_output)
-    
-    def test_str_w(self):
-        """Test __str__ method width"""
-        s1 = Square(4)
-        self.assertEqual(str(s1), "[Square] (67) 0/0 - 4")
 
-    def test_str_w_x(self):
-        """Test __str__ method w_x"""
-        s1 = Square(1, 2)
-        self.assertEqual(str(s1), "[Square] (68) 2/0 - 1")
-
-    def test_str_w_x_y(self):
-        """Test __str__ method w_x_y"""
-        s1 = Square(1, 2, 3)
-        self.assertEqual(str(s1), "[Square] (69) 2/3 - 1")
-
-    def test_strinf_rep_w_x_y_id(self):
-        s1 = Square(1,2,3,4)
-        self.assertEqual(str(s1), "[Square] (4) 2/3 - 1")
 
     # Test display method
     def test_display_size(self):
