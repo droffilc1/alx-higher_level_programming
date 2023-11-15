@@ -327,6 +327,24 @@ class test_str_square(unittest.TestCase):
         expected_output = "[Square] (1) 2/1 - 4"
         self.assertEqual(str(obj), expected_output)
 
+    def test_str_w(self):
+        """Test __str__ method width"""
+        s1 = Square(4)
+        self.assertEqual(str(s1), "[Square] (66) 0/0 - 4")
+
+    def test_str_w_x(self):
+        """Test __str__ method w_x"""
+        s1 = Square(1, 2)
+        self.assertEqual(str(s1), "[Square] (67) 2/0 - 1")
+
+    def test_str_w_x_y(self):
+        """Test __str__ method w_x_y"""
+        s1 = Square(1, 2, 3)
+        self.assertEqual(str(s1), "[Square] (68) 2/3 - 1")
+
+    def test_strinf_rep_w_x_y_id(self):
+        s1 = Square(1,2,3,4)
+        self.assertEqual(str(s1), "[Square] (4) 2/3 - 1")
 
     # Test display method
     def test_display_size(self):
