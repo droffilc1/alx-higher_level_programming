@@ -22,7 +22,7 @@ def main():
     # Connect to a MySQL database
     db = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC LIMIT 5")
+    cur.execute("SELECT * FROM states ORDER BY id ASC LIMIT 5")
 
     # Fetch all rows
     rows = cur.fetchall()
