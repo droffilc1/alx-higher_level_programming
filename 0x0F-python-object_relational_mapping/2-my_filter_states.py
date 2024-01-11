@@ -22,7 +22,7 @@ def main():
     """
     db = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name=%s ORDER BY id ASC LIMIT 1", (search_value,))
+    cur.execute("SELECT * FROM states WHERE name='{}' ORDER BY id ASC LIMIT 1".format(search_value))
 
     rows = cur.fetchall()
     for row in rows:
