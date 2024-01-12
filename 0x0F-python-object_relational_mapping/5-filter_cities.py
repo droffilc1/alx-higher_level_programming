@@ -19,7 +19,7 @@ def main():
     cur.execute("SELECT * FROM cities\
                 INNER JOIN states\
                 ON cities.state_id = states.id\
-                ORDER BY cities.id")
+                ORDER BY cities.id ASC")
 
     print(", ".join([city[2]
                      for city in cur.fetchall()
