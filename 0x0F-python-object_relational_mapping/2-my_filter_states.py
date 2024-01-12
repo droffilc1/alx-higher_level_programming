@@ -2,26 +2,21 @@
 """
     2-my_filter_states
 """
-import os
-import sys
+from sys import argv
 import MySQLdb
-from dotenv import load_dotenv
 
-load_dotenv()
-
-MY_HOST = os.getenv("MY_HOST")
-MY_USER = os.getenv("MY_USER")
-MY_PASS = os.getenv("MY_PASS")
-MY_DB = os.getenv("MY_DB")
-
-search_value = sys.argv[4]
+search_value = argv[4]
 
 
 def main():
     """
         Entry point
     """
-    db = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
+    db = MySQLdb.connect(host="localhost",
+                         port=3306,
+                         user=argv[1],
+                         passwd=argv[2],
+                         db=argv[3])
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name='{}' \
                 ORDER BY id ASC LIMIT 1".format(search_value))
