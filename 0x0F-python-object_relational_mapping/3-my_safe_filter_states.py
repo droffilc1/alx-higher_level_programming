@@ -19,7 +19,7 @@ def main():
                          db=argv[3])
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name=%s \
-                ORDER BY id ASC LIMIT 1", (search_value,))
+                ORDER BY id ASC", (search_value,))
 
     rows = cur.fetchall()
     for row in rows:
