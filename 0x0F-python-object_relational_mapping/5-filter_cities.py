@@ -18,7 +18,7 @@ def main():
     cur = db.cursor()
     cur.execute("SELECT * FROM cities\
                 INNER JOIN states\
-                ON cities.states_id = states.id\
+                ON cities.state_id = states.id\
                 ORDER BY cities.id")
 
     print(", ".join([city[2]
