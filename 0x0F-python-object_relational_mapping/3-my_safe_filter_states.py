@@ -5,8 +5,6 @@
 from sys import argv
 import MySQLdb
 
-search_value = argv[4]
-
 
 def main():
     """
@@ -19,7 +17,7 @@ def main():
                          db=argv[3])
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name=%s \
-                ORDER BY id ASC", (search_value,))
+                ORDER BY id ASC", (argv[4],))
 
     rows = cur.fetchall()
     for row in rows:
