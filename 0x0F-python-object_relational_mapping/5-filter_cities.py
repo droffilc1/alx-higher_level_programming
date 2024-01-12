@@ -6,8 +6,6 @@ from sys import argv
 import MySQLdb
 
 
-search_value = argv[4]
-
 def main():
     """
         Entry point
@@ -18,15 +16,19 @@ def main():
                          passwd=argv[2],
                          db=argv[3])
     cur = db.cursor()
-    cur.execute("")
+    cur.execute("SELECT * FROM cities\
+                INNER JOIN states\
+                ON cities.states_id = states.id\
+                ORDER BY cities.id")
 
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    print(", ".join([city[2]
+                     for city in cur.fetchall()
+                     if city[4] == argv[4]])
+          )
 
     cur.close()
     db.close()
 
 
-if  __name__ == "__main__":
+if __name__ == "__main__":
     main()
