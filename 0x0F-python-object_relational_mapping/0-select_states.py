@@ -17,7 +17,7 @@ def main():
                          passwd=argv[2],
                          db=argv[3])
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id ASC LIMIT 5")
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
 
     # Fetch all rows
     rows = cur.fetchall()
