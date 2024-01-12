@@ -13,6 +13,7 @@ MY_USER = os.getenv("MY_USER")
 MY_PASS = os.getenv("MY_PASS")
 NEW_DB = os.getenv("NEW_DB")
 
+
 def main():
     """
         Entry point
@@ -30,6 +31,7 @@ def main():
 
     cur.close()
     db.close()
+
 
 if __name__ == "__main__":
     main()

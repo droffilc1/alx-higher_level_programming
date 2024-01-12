@@ -16,13 +16,15 @@ MY_DB = os.getenv("MY_DB")
 
 search_value = sys.argv[4]
 
+
 def main():
     """
         Entry point
     """
     db = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name='{}' ORDER BY id ASC LIMIT 1".format(search_value))
+    cur.execute("SELECT * FROM states WHERE name='{}' \
+                ORDER BY id ASC LIMIT 1".format(search_value))
 
     rows = cur.fetchall()
     for row in rows:
@@ -32,5 +34,5 @@ def main():
     db.close()
 
 
-if  __name__ == "__main__":
+if __name__ == "__main__":
     main()
