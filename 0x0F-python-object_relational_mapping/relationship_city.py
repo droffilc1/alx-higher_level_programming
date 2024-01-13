@@ -2,11 +2,11 @@
 """Defines class City
 """
 
-from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from relationship_state import Base, State
 
-Base = declarative_base()
+# Base = declarative_base()
 
 
 class City(Base):
