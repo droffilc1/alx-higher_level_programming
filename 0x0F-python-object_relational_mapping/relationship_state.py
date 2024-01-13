@@ -1,26 +1,27 @@
 #!/usr/bin/python3
-"""Defines class City
+"""Defines class State
 """
 
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey
-from model_state import Base, State
+
 
 Base = declarative_base()
 
 
-class City(Base):
-    """City class that inherits from Base
+class State(Base):
+    """State class that inherits from Base
 
     Attribute:
         id: represents a column of an auto-generated, unique integer,
             can’t be null and is a primary key
         name: represents a column of a string with maximum 128 characters
              and can’t be null
-        state_id: represents a column of an integer, can’t be null and
-             is a foreign key to states.id
+        cities: represent a relationship with the class City
     """
-    __tablename__ = "cities"
+    __tablename__ = "states"
     id = Column(Integer, nullable=False, primary_key=True)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey("states.id"), nullable=False)
+    cities = relationship("City", back_populates="state",
+                          cascade="all, delete")
