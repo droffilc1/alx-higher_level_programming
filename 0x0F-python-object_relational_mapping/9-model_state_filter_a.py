@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Prints the first State object from the database hbtn_0e_6_usa
+"""Lists all State objects that contain the letter a from
+the database hbtn_0e_6_usa
 """
 from sys import argv
 from sqlalchemy import create_engine
@@ -12,10 +13,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).order_by(State.id).first()
-    if result:
-        print("{:d}: {:s}".format(result.id, result.name))
-    else:
-        print("Nothing")
+    for state in session.query(State).filter(
+            State.name.like('%a%')).order_by(State.id):
+        print("{:d}: {:s}".format(state.id, state.name))
 
     session.close()
